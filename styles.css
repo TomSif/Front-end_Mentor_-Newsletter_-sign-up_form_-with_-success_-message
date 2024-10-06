@@ -1,0 +1,245 @@
+:root {
+  /* ### Define colors of the project */
+  /* Primary */
+  --Tomato: hsl(4, 100%, 67%);
+  /* Neutral */
+  --DarkSlateGrey: hsl(234, 29%, 20%);
+  --CharcoalGrey: hsl(235, 18%, 26%);
+  --TomatoLight: hsl(5, 100%, 95%);
+  --Grey: hsl(231, 7%, 60%);
+  --White: hsl(0, 0%, 100%);
+
+  /* ### Define padding and gap of the project */
+  --layout-gap: 1.65rem;
+  --layout-padding: 2.8rem;
+}
+
+/* ### Define Fonts */
+/* roboto-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/roboto-v32-latin-regular.woff2") format("woff2");
+}
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/roboto-v32-latin-700.woff2") format("woff2");
+}
+
+/* ### Start styling  */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--CharcoalGrey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.signup {
+  background-color: var(--White);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 23.5rem;
+  min-height: 100vh;
+}
+.signup__header {
+  width: 100%;
+}
+.signup__header__image {
+  height: 17.75rem;
+}
+.signup__form {
+  padding: var(--layout-gap);
+  padding-top: 2rem;
+}
+.signup__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--DarkSlateGrey);
+}
+.signup__description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--DarkSlateGrey);
+  padding-top: 0.7rem;
+}
+.signup__benefits {
+  font-size: 1rem;
+  font-weight: 400;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  list-style-type: none;
+}
+.signup__benefit-item {
+  font-size: 1rem;
+  font-weight: 400;
+  position: relative; /* for the icon list SVG */
+  padding-left: 2.3rem;
+  padding-bottom: 0.5rem;
+}
+.signup__benefit-item:nth-child(2) {
+  font-size: 1rem;
+  font-weight: 400;
+  position: relative; /* for the icon list SVG */
+  padding-left: 2.3rem;
+  padding-bottom: 0.7rem;
+}
+.signup__benefit-item::before {
+  content: url("./assets/images/icon-list.svg");
+  position: absolute;
+  left: 0%;
+  top: 18%; /* Aligne verticalement */
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+}
+.signup__benefit-item:nth-child(3)::before {
+  top: 25%; /* Aligne verticalement */
+}
+.signup__form-element {
+  display: flex;
+  padding-top: 1.3rem;
+  flex-direction: column;
+}
+.signup__form-element--container {
+  display: contents;
+}
+.signup__label {
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: var(--DarkSlateGrey);
+  padding-bottom: 0.5rem;
+}
+.signup__input-container {
+  display: flex;
+  justify-content: space-between;
+}
+.signup__input {
+  padding: 1rem;
+  border-style: outset;
+  border-radius: 0.5rem;
+  border: 1px solid var(--Grey);
+  color: var(--CharcoalGrey);
+}
+
+.signup__input:active {
+  cursor: pointer;
+  border: 1px solid var(--Grey);
+}
+.signup__input:focus {
+  outline: none;
+  border-color: var(--DarkSlateGrey);
+}
+.signup__error-message {
+  display: none; /* Hide by default */
+}
+.signup__submit-btn {
+  margin-top: 1.4rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: none;
+  background-color: var(--DarkSlateGrey);
+  color: var(--White);
+  font-weight: 700;
+}
+.signup__submit-btn:active {
+  border: 1px solid var(--Tomato);
+  background: linear-gradient(90deg, #ff5476, var(--Tomato) 50%);
+  color: var(--White);
+  box-shadow: 1px 10px 15px var(--TomatoLight);
+  cursor: pointer;
+}
+/* ### Styling of the Error State */
+/* Will use .signup__input-container.error and toggle .error class in javascript */
+.signup__input-container.error .signup__error-message {
+  display: inline; /* Show error message */
+  top: 0.5rem;
+  right: 0;
+  color: var(--Tomato);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+/* Change color input in error State */
+.signup__input-container.error .signup__input {
+  padding: 1rem;
+  border-style: outset;
+  border-radius: 0.5rem;
+  border: 1px solid var(--Tomato);
+  background-color: var(--TomatoLight);
+  color: var(--Tomato);
+}
+.signup__input-container.error .signup__input::placeholder {
+  /* May be not necessary */
+  color: var(--Tomato);
+}
+
+/*### STYLING SUCCESS MESSAGE */
+.success-message {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 23.5rem;
+  min-height: 100vh;
+  background-color: var(--White);
+  padding: 1.5rem;
+  overflow: hidden;
+}
+.success-message__container {
+  padding-top: 8.5rem;
+}
+.success-message__icon {
+  width: 4rem;
+}
+.success-message__title {
+  padding-top: 2.5rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1;
+  color: var(--DarkSlateGrey);
+}
+.success-message__description {
+  padding-top: 1.3rem;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--DarkSlateGrey);
+}
+.success-message__dismiss-btn {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: var(--DarkSlateGrey);
+  color: var(--White);
+  cursor: pointer;
+}
+.success-message__dismiss-btn:active {
+  border: 1px solid var(--Tomato);
+  background: linear-gradient(90deg, #ff5476, var(--Tomato) 50%);
+  color: var(--White);
+  box-shadow: 1px 10px 15px var(--TomatoLight);
+}
+/* ### Attribution */
+.attribution {
+  display: none;
+}
+
+@media (min-height: 950px) {
+  .signup__form-element {
+    overflow: hidden;
+  }
+}
