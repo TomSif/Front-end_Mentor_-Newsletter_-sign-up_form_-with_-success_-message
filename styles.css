@@ -43,17 +43,23 @@ body {
 }
 .signup {
   background-color: var(--White);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  display: grid;
   max-width: 23.5rem;
   min-height: 100vh;
 }
 .signup__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 100%;
 }
 .signup__header__image {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
   height: 17.75rem;
 }
 .signup__form {
@@ -184,7 +190,7 @@ body {
 /*### STYLING SUCCESS MESSAGE */
 .success-message {
   position: fixed;
-  display: none;
+  display: none; /* Will be activate in javascript when email input is successfull */
   flex-direction: column;
   justify-content: center;
   max-width: 23.5rem;
@@ -238,8 +244,75 @@ body {
   display: none;
 }
 
-@media (min-height: 950px) {
-  .signup__form-element {
+/* ### MEDIA QUERIES */
+
+@media (min-width: 950px) {
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--CharcoalGrey);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 100vh;
+  }
+  .signup {
+    background-color: var(--White);
+    display: grid; /* will change display to none in javascript when email is successfull */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    max-width: 58rem;
+    min-height: auto;
+    border-radius: 2rem;
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+  }
+  .signup__header__image {
+    display: none;
+  }
+  .signup__header {
+    grid-column: 2/3;
+    grid-row: 1;
+    height: 100%;
+    margin-left: 2.2rem;
+    background-image: url(./assets/images/illustration-sign-up-desktop-noborderRadius.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 37rem;
+    max-width: 25rem;
+  }
+  .signup__form {
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+  }
+  .signup__title {
+    font-size: 3.5rem;
+  }
+  /*### STYLING SUCCESS MESSAGE */
+  .success-message {
+    position: fixed;
+    display: none; /*will be activate in javascript when email is successfull */
+    flex-direction: column;
+    justify-content: center;
+    max-width: 31.5rem;
+    min-height: 32.75rem;
+    max-height: 32.75rem !important;
+    background-color: var(--White);
+    padding: 3rem 4rem 3rem 4rem;
     overflow: hidden;
+    border-radius: 2rem;
+  }
+  .success-message__container {
+    padding-top: 0;
+  }
+  .success-message__title {
+    font-size: 3.5rem;
+  }
+  .success-message__description {
+    padding-top: 1.3rem;
+  }
+  .success-message__dismiss-btn {
+    margin-bottom: 1rem;
   }
 }
