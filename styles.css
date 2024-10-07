@@ -64,7 +64,6 @@ body {
 }
 .signup__form {
   padding: var(--layout-gap);
-  padding-top: 2rem;
 }
 .signup__title {
   font-size: 2.5rem;
@@ -283,6 +282,7 @@ body {
     max-width: 25rem;
   }
   .signup__form {
+    margin-top: 2rem;
     padding-top: 1.5rem;
     padding-bottom: 3rem;
   }
